@@ -114,8 +114,8 @@ int** multiplyMatrices(usp l1,usp c1,usp c2) {  // c1 == l2
 }
 //*************************** power of a matrix ****************
 
-int** helpMatrix(int** matrixOriginal, int** matrix,usp l) {
-	int** M3 = allocateMemory(l,l);
+int** helpMatrix(int** matrixOriginal, int** matrix,usp l) {  //the role of this function is doing the maltiplication of the resultant matrix with the original one so i can 			
+	int** M3 = allocateMemory(l,l);			    // use it in a loop int powerMatrices() function to get the final result.
 	for (int i = 0; i < *l; i++) {
 		for (int j = 0; j < *l; j++) {
 			int temp = 0;
