@@ -25,9 +25,12 @@ void displayMatrix(int** Matrix, usp l, usp c) {
 	}
 }
 int** fillMatrix(int** M, usp l, usp c) {
+	cout << "Matrix : " << endl;
 	for (int i = 0; i < *l; i++) {
-		for (int j = 0; j < *c; j++)
+		for (int j = 0; j < *c; j++) {
+			cout << "[" << i << "][" << j << "]: ";
 			cin >> M[i][j];
+		}
 	}
 	return M;
 }
@@ -40,6 +43,11 @@ int** sum2Matrices(usp l,usp c) {
 	M3 = allocateMemory(l, c);
 	fillMatrix(M1, l, c);
 	fillMatrix(M2, l, c);
+	cout << "Matrix 1 :\n";
+	displayMatrix(M1, l, c);
+	cout << "Matrix 2 :\n";
+	displayMatrix(M2, c, c);
+	cout << endl;
 	for (int i = 0; i < *l; i++) {
 		for (int j = 0; j < *c; j++) {
 			M3[i][j] = M1[i][j] + M2[i][j];
@@ -65,6 +73,11 @@ int** sub2Matrices(usp l, usp c) {
 	M3 = allocateMemory(l, c);
 	fillMatrix(M1, l, c);
 	fillMatrix(M2, l, c);
+	cout << "Matrix 1 :\n";
+	displayMatrix(M1, l, c);
+	cout << "Matrix 2 :\n";
+	displayMatrix(M2, l, c);
+	cout << endl;
 	for (int i = 0; i < *l; i++) {
 		for (int j = 0; j < *c; j++) {
 			M3[i][j] = M1[i][j] - M2[i][j];
@@ -90,7 +103,11 @@ int** multiplyMatrices(usp l1,usp c1,usp c2) {  // c1 == l2
 	M3 = allocateMemory(l1, c2);
 	fillMatrix(M1, l1, c1);
 	fillMatrix(M2, c1, c2);
-
+	cout << "Matrix 1 :\n";
+	displayMatrix(M1, l1, c1);
+	cout << "Matrix 2 :\n";
+	displayMatrix(M2, c1, c2);
+	cout << endl;
 	for (int i = 0; i < *l1; i++) {
 		for (int j = 0; j < *c2; j++) {
 			int temp = 0;
@@ -114,8 +131,8 @@ int** multiplyMatrices(usp l1,usp c1,usp c2) {  // c1 == l2
 }
 //*************************** power of a matrix ****************
 
-int** helpMatrix(int** matrixOriginal, int** matrix,usp l) {  //the role of this function is doing the maltiplication of the resultant matrix with the original one so i can 			
-	int** M3 = allocateMemory(l,l);			    // use it in a loop int powerMatrices() function to get the final result.
+int** helpMatrix(int** matrixOriginal, int** matrix,usp l) {
+	int** M3 = allocateMemory(l,l);
 	for (int i = 0; i < *l; i++) {
 		for (int j = 0; j < *l; j++) {
 			int temp = 0;
